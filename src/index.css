@@ -1,0 +1,41 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-print-color-adjust: exact !important;
+
+}
+@font-face {
+  font-family: 'RobotoHeading';
+  src: local('RobotoHeading'), url(./Assets/Fonts/Roboto/Roboto-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'RobotoBold';
+  src: local('RobotoBold'), url(./Assets/Fonts/Roboto/Roboto-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'RobotoHeadingMedium';
+  src: local('RobotoHeadingMedium'), url(./Assets/Fonts/Roboto/Roboto-Medium.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'AvenirText';
+  src: local('AvenirText'), url(./Assets/Fonts/Avenir/AvenirLTStd-Roman.otf) format('opentype');
+}
+@font-face {
+  font-family: 'AvenirTextBlack';
+  src: local('AvenirTextBlack'), url(./Assets/Fonts/Avenir/AvenirLTStd-Book.otf) format('opentype');
+}
+
+.main-screen #print-content {
+  position: relative;
+}
+.main-screen #print-content .opacity-img{
+  position: absolute;
+  opacity: 0.2;
+}
