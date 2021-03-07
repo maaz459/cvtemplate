@@ -8,44 +8,44 @@ const initialState = {
     resumeDetails: localStorage.getItem('resumeDetails') ?
             JSON.parse(localStorage.getItem('resumeDetails'))
             :{
-        profileSummary: '',
+        profileSummary: 'No summary at all',
         personalInfo: localStorage.getItem('personalInfo') ?
             JSON.parse(localStorage.getItem('personalInfo'))
         
             :{
-                firstName: '', lastName: '', profession: '', city: '', province: '', phone: '', email: ''
+                firstName: 'uzair', lastName: 'shah', profession: 'job', city: 'Lahore', province: 'punjab', phone: '03357484575', email: 'uzair@gmail.com'
             },
         goalsInfo: localStorage.getItem('jobInfo') ?
             JSON.parse(localStorage.getItem('jobInfo'))
             :{
-            pastJob:'',presentJob:'',futureJob:''
+            pastJob:'completed',presentJob:'engineer',futureJob:'not an engineer'
         },
         workExperience: localStorage.getItem('workInfo') ?
             JSON.parse(localStorage.getItem('workInfo'))
-            :[{ title: '', startDate: '', endDate: '' }, { title: '', startDate: '', endDate: '' }],
-        facts: ["", ""],
+            :[{ title: '',employer:'',city:'',state:'',description:'', startDate: '', endDate: '' }],
+        facts: ["dont have", "anyfact"],
         skills: localStorage.getItem('skillsInfo') ?
             JSON.parse(localStorage.getItem('skillsInfo'))
             :[{}],
         educationInfo: localStorage.getItem('educationInfo') ?
             JSON.parse(localStorage.getItem('educationInfo'))
             :[{
-            instituteName: '',
-            instituteLocation: '',
-            studyField: '',
+            instituteName: 'comasts',
+            instituteLocation: 'lahore',
+            studyField: 'softwareengineering',
             studyStatus: false,
-            graduationStartDate: '',
-            graduationEndDate: '',
+            graduationStartDate: 'jan',
+            graduationEndDate: 'jan',
             }
         ],
         socialLinks: localStorage.getItem('socialLinksInfo') ?
             JSON.parse(localStorage.getItem('socialLinksInfo'))
             
-            // :['',''],
+             //:['uzairfacebook',''],
               :[{ socialSite: '', socialLink: '' }],
-        languages: ['', ''],
-        hobbies: ['', ''],
-        recentJobs:{job:'', employer:'', jobCity:'', jobStartDate:'', jobEndDate:'', stillWorking:false}
+        languages: ['urdu', 'english'],
+        hobbies: ['play', ''],
+        recentJobs:{job:'', employer:'development', jobCity:'lahore', jobStartDate:'23-4-45', jobEndDate:'12-2-23', stillWorking:false}
 
     },
     // choosenResume: { choosenResume: '', },

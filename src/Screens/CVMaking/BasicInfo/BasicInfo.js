@@ -103,9 +103,7 @@ const BasicInfo = () => {
     }, [dispatch, socialLinksInfo]);
 
 
-    useEffect(() => {
-       console.log(socialLinks)
-    }, [socialLinks])
+   
     return (
         <>
             <Navbar border={true} />

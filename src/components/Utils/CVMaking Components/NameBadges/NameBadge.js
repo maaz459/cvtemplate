@@ -1,7 +1,7 @@
 import React from 'react';
 import "./NameBadge.css"
 
-const NameBadge = ({ name, margin, additional }) => {
+const NameBadge = ({ name, margin, additional}) => {
     return (
         <>
             <div className={margin ? "NameBadgeWithMargin" : "NameBadge"}>
@@ -12,7 +12,6 @@ const NameBadge = ({ name, margin, additional }) => {
                         fontFamily: "RobotoHeadingMedium",
                         opacity: "0.7",
                         fontSize: "13px"
-
                     }}
                 >{`(${additional})`}</span>}
             </div>

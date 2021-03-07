@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { Row, Col, Button, Checkbox } from 'antd'
+import {useDispatch,useSelector} from 'react-redux'
 import { EyeOutlined } from '@ant-design/icons'
 import TextArea from './../../../components/Utils/CVMaking Components/TextArea/TextArea';
 import DateField from './../../../components/Utils/CVMaking Components/DateField/DateField';
@@ -16,19 +17,32 @@ import Footer from './../../../components/Footer/Footer';
 const Education = () => {
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
     const isMobile = useMediaQuery({ maxWidth: 600 })
-    const [inputList, setInputList] = useState([{
-        schoolName: "",
-        degreeProgram: "",
-        startDate: "",
-        endDate: "",
-        description: ""
-    }]);
+    const [inputIndex, setInputIndex] = useState(0);
+    const education = useSelector(state => state.resumeDetails.educationInfo);
+    let dispatch=useDispatch()
 
-    const settingList = (index) => {
-        const list = [...inputList];
-        list.splice(index, 1);
-        setInputList(list);
-    }
+    useEffect(() => {
+        setEducationDetailsList(education)
+    }, [])
+    const [educationDetailsList, setEducationDetailsList] = useState([]);
+    const updateEducation = (index,name,value) => {
+        let updatedList = [...educationDetailsList];
+        updatedList[index][name] = value;
+        setEducationDetailsList(updatedList);
+      }
+      const deleteEducation = (index) => {
+        let updatedList = [...educationDetailsList];
+        let removedItem = updatedList.splice(index, 1);
+        updatedList.filter(x => x !== removedItem[0]);
+        setEducationDetailsList(updatedList);
+        setInputIndex(inputIndex-1)
+    
+      }
+   
+    const [educationInfo, setEducationInfo] = useState({
+        educationDetailsList
+      });
+  
 
     return (
         <>

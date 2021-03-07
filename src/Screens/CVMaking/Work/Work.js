@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import {useSelector,useDispatch} from 'react-redux'
 import { Row, Col, Button,Checkbox } from 'antd'
 import { EyeOutlined } from '@ant-design/icons'
 import './../BasicInfo/BasicInfo.css'
@@ -14,9 +15,50 @@ import Footer from './../../../components/Footer/Footer';
 import WorkFields from './WorkFields';
 import DateField from '../../../components/Utils/CVMaking Components/DateField/DateField';
 import TextArea from '../../../components/Utils/CVMaking Components/TextArea/TextArea';
+import {getWorkExperienceInfo} from './../../../actions/resumeDetailsActions'
+import ViewCVButton from '../../../components/Utils/CVMaking Components/viewCVButton/viewCVButton';
 const Work = () => {
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
     const isMobile = useMediaQuery({ maxWidth: 600 })
+    const [inputIndex, setInputIndex] = useState(0);
+    const workExperience = useSelector(state => state.resumeDetails.workExperience);
+    let dispatch=useDispatch()
+    useEffect(() => {
+        setWorkExperienceList(workExperience)
+    }, [])
+    const [workExperienceList, setWorkExperienceList] = useState([]);
+    const updateWork = (index,name,value) => {
+        let updatedList = [...workExperienceList];
+        updatedList[index][name] = value;
+        setWorkExperienceList(updatedList);
+      }
+      const deleteWorkExperience = (index) => {
+        let updatedList = [...workExperienceList];
+        let removedItem = updatedList.splice(index, 1);
+        updatedList.filter(x => x !== removedItem[0]);
+        setWorkExperienceList(updatedList);
+        setInputIndex(inputIndex-1)
+    
+      }
+      const [workExperienceInfo, setWorkExperienceInfo] = useState({
+        workExperienceList
+      });
+      
+
+       // Use Effect for Work Experience
+      
+    useEffect(() => {
+        setWorkExperienceInfo({
+            workExperienceList
+        },
+        );
+    }, [workExperienceList]);
+    useEffect(() => {
+        dispatch(getWorkExperienceInfo(workExperienceInfo));
+    }, [dispatch, workExperienceInfo]);
+
+    
+
     const [inputList, setInputList] = useState([{ jobTitle: "", employer: "", city: "", stateProvince: "", startDate: "", endDate: "", description: "" }]);
 
     const settingList = (index) => {
@@ -61,19 +103,20 @@ const Work = () => {
                 <div className="basicInfoDislay" >
                     <Row justify={isTabletOrMobile ? "center" : "start"}>
                         <Col lg={16} md={16} sm={24} xs={24}>
-                            <NameBadge name="Most Recent Jobs"></NameBadge>
-                            <WorkFields checkBox={true} />
-
-                            <NameBadge name="Previous Jobs" additional="If Any"></NameBadge>
-                            {/* <WorkFields onClick={() => settingList(i)} /> */}
-                            {inputList.map((d, i) => {
+                           {/* <WorkFields onClick={() => settingList(i)} /> */}
+                            {workExperienceList.map((d, i) => {
                                 return <>
+                            {i==0&&     <NameBadge name="Most Recent Jobs"></NameBadge>}
+                            {i!=0&&<NameBadge margin="true" name="Previous Jobs" additional="If Any"></NameBadge>}
+                            
                                  <Row justify="center" style={{ marginTop: "5%" }}>
                 <Col span={11}>
                     <InputField
                         placeholder="Job TItle"
                         suffix={true}
                         type="text"
+                        value={d.title}
+                        onChange={(e)=>updateWork(i,"title",e.target.value)}
                     />
                 </Col>
 
@@ -83,31 +126,54 @@ const Work = () => {
                     <InputField
                         placeholder="Employer"
                         suffix={true}
-                        type="text" />
+                        type="text"
+                        value={d.employer}
+                        onChange={(e)=>updateWork(i,"employer",e.target.value)}
+                        
+                        />
+                       
+
                 </Col>
 
 
                 <Col style={{ marginTop: "7%" }} span={11}>
                     <InputField placeholder="City"
-                        type="text" />
+                        type="text"
+                        value={d.city}
+                        onChange={(e)=>updateWork(i,"city",e.target.value)}
+                        
+                        />
                 </Col>
                 <Col span={2}>
                 </Col>
                 <Col style={{ marginTop: "7%" }} span={11}>
                     <InputField placeholder="State/Province"
-                        type="text" />
+                        type="text" 
+                        value={d.state}
+                        onChange={(e)=>updateWork(i,"state",e.target.value)}
+                        
+                        />
                 </Col>
 
                 <Col style={{ marginTop: "7%", marginBottom: "7%" }} span={11}>
-                    <DateField placeholder="Start Date" />
+                    <DateField placeholder="Start Date" 
+                    value={d.startDate}
+                    onChange={(date,dateString)=>updateWork(i,"startDate",dateString)}
+                    
+                    />
                 </Col>
                 <Col style={{ marginTop: "7%", marginBottom: "7%" }} span={2}>
                 </Col>
                 <Col style={{ marginTop: "7%", marginBottom: "7%" }} span={11}>
-                    <DateField placeholder="End Date" />
+                    <DateField placeholder="End Date" 
+                    value={d.endDate}
+
+                    onChange={(date,dateString)=>updateWork(i,"endDate",dateString)}
+                    
+                    />
                 </Col>
 
-                {true && <Col offset={isTabletOrMobile ? isMobile ? 12 : 15 : 17} span={isTabletOrMobile ? isMobile ? 12 : 9 : 6}>
+                {i==0 && <Col offset={isTabletOrMobile ? isMobile ? 12 : 15 : 17} span={isTabletOrMobile ? isMobile ? 12 : 9 : 6}>
                     <Checkbox style={{ color: "red", }} onChange={onChange}>I currently work here</Checkbox>
                 </Col>}
             </Row>
@@ -117,34 +183,33 @@ const Work = () => {
 
 
                 <Col style={{ marginTop: "5%" }} span={24}>
-                    <TextArea placeholder="Add Description" suffix textArea={true} minRows={3}></TextArea>
+                    <TextArea 
+                     onChange={(e)=>updateWork(i,"description",e.target.value)}
+                    placeholder="Add Description" suffix textArea={true} minRows={3}></TextArea>
                 </Col>
-                <Col offset={23} span={1} onClick={settingList} style={{ cursor: "pointer", position: "relative", right: isMobile ? "-15px" : "-50px", top: "-50px" }} span={1}><i class="far fa-trash-alt"></i></Col>
+                {i!=0&&<Col offset={23} span={1} onClick={()=>deleteWorkExperience(i)} style={{ cursor: "pointer", zIndex:"1000",position: "relative", right: isMobile ? "-15px" : "-50px", top: "-50px" }} span={1}><i class="far fa-trash-alt"></i></Col>}
 
             </Row>
 
                                 
                                 </>
                             })}
-                            <Row>
+                           {inputIndex<2&&                                                                                                                                                                                   <Row>
                                 <Col style={{ marginTop: "5%" }} span={22}>
-                                    <p onClick={() => setInputList([...inputList, { jobTitle: "", employer: "", city: "", stateProvince: "", startDate: "", endDate: "", description: "" }])} style={{ fontFamily: "AvenirTextBlack", color: "#FF4309", cursor: "pointer" }}>Add More <i style={{ color: "#0A2C66" }} class="fas fa-plus"></i></p>
+                                    <p 
+                                    onClick={() =>{ 
+                                        setInputIndex(inputIndex+1)
+                                        setWorkExperienceList([...workExperienceList,{ title: '',employer:'',city:'',state:'',description:'', startDate: '', endDate: '' }])}}
+                                    style={{ fontFamily: "AvenirTextBlack", color: "#FF4309", cursor: "pointer" }}>Add More <i style={{ color: "#0A2C66" }} class="fas fa-plus"></i></p>
                                 </Col>
-                            </Row>
+                            </Row>}
 
                         </Col>
                         <Col span={2} />
                         <Col style={{ textAlign: "center" }} lg={6} md={6} sm={14} xs={14}>
                             <img className="basicInfoCVImage" style={{ maxWidth: "70%" }} src={seven} alt="CV is Loading"></img>
                             <div style={{ display: "flex", justifyContent: "center" }}>
-                                <Button style={{
-                                    backgroundColor: "#F4F4F4",
-                                    textAlign: "center",
-                                    marginTop: "30px", color: "#0A2C66",
-                                    border: "none"
-                                }} shape="round" icon={<EyeOutlined style={{ all: "unset", color: "#FF4309" }} />} size={5}>
-                                    Preview
-        </Button>
+                               <ViewCVButton/>
                             </div>
                         </Col>
                     </Row>
@@ -152,10 +217,10 @@ const Work = () => {
                     {/* Back and Next Buttons */}
                     <div style={{ display: "flex", justifyContent: "space-between", marginTop: "7%", marginBottom: "125px" }}>
                         <div>
-                            <CVMakingButton name="Back" />
+                            <CVMakingButton to="basicInfo" name="Back" />
                         </div>
                         <div>
-                            <CVMakingButton name="Next" />
+                            <CVMakingButton to="education" name="Next" />
 
                         </div>
 
@@ -170,3 +235,7 @@ const Work = () => {
 }
 
 export default Work;
+
+
+
+
