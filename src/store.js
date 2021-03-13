@@ -36,6 +36,7 @@ const initialState = {
             studyStatus: false,
             graduationStartDate: 'jan',
             graduationEndDate: 'jan',
+            description:""
             }
         ],
         socialLinks: localStorage.getItem('socialLinksInfo') ?
