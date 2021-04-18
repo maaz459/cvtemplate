@@ -5,17 +5,28 @@ import PlanDetailPackageCard from "../PlanDetailPacakgeCard/PlanDetailPackageCar
 const PlanDetailPackage = () => {
   return (
     <>
-      <Row className="mt-3 mb-3" style={{ marginLeft: "19%" }}>
+      <Row
+        className="mt-3 mb-3"
+        style={{ marginLeft: "15%", fontFamily: "AvenirText" }}
+      >
         <h5>
-          <strong>Your Plan details</strong>
+          <>Your Plan details</>
         </h5>
       </Row>
       <Row justify="center">
-        <Col sm={24} lg={7}>
+        <Col xs={10} sm={10} md={7} lg={7} xl={8}>
           <PlanDetailPackageCard
             name={
-              <h6 className="text-center" style={{ margin: "0px", padding: "0px", fontSize: "13px" }}>
-                <strong>Pro Quartely</strong>
+              <h6
+                className="text-center"
+                style={{
+                  margin: "0px",
+                  padding: "0px",
+                  fontSize: "13px",
+                  fontFamily: "AvenirText",
+                }}
+              >
+                <>Pro Quartely</>
               </h6>
             }
             price={
@@ -25,11 +36,19 @@ const PlanDetailPackage = () => {
                     fontSize: "45px",
                     fontWeight: "bold",
                     textAlign: "center",
-                    margin: "0px", padding: "0px"
+                    margin: "0px",
+                    padding: "0px",
+                    fontFamily: "AvenirText",
                   }}
                 >
                   $12
-                  <span style={{ color: "grey", fontSize: "10px" }}>
+                  <span
+                    style={{
+                      color: "grey",
+                      fontSize: "10px",
+                      fontFamily: "AvenirText",
+                    }}
+                  >
                     /monthly
                   </span>
                 </p>
@@ -37,9 +56,16 @@ const PlanDetailPackage = () => {
             }
             bill={
               <p
-                style={{ color: "grey", fontSize: "12px", textAlign: "center", margin: "0px", padding: "0px" }}
+                style={{
+                  color: "grey",
+                  fontSize: "12px",
+                  textAlign: "center",
+                  margin: "0px",
+                  padding: "0px",
+                  fontFamily: "AvenirText",
+                }}
               >
-                <strong>Billed Quartely</strong>
+                <>Billed Quartely</>
               </p>
             }
           />
@@ -50,15 +76,23 @@ const PlanDetailPackage = () => {
             border: "1px solid #0a2c66",
             height: "100px",
             alignSelf: "center",
-            marginLeft: "2%",
-            marginRight: "2%",
+            marginLeft: "1.7%",
+            marginRight: "1.7%",
           }}
         />
-        <Col sm={24} lg={7}>
+        <Col xs={10} sm={10} md={7} lg={7} xl={8}>
           <PlanDetailPackageCard
             name={
-              <h6 className="text-center">
-                <strong>Pro Monthly</strong>
+              <h6
+                className="text-center"
+                style={{
+                  margin: "0px",
+                  padding: "0px",
+                  fontSize: "13px",
+                  fontFamily: "AvenirText",
+                }}
+              >
+                <>Pro Monthly</>
               </h6>
             }
             price={
@@ -68,10 +102,19 @@ const PlanDetailPackage = () => {
                     fontSize: "45px",
                     fontWeight: "bold",
                     textAlign: "center",
+                    margin: "0px",
+                    padding: "0px",
+                    fontFamily: "AvenirText",
                   }}
                 >
                   $18
-                  <span style={{ color: "grey", fontSize: "10px" }}>
+                  <span
+                    style={{
+                      color: "grey",
+                      fontSize: "10px",
+                      fontFamily: "AvenirText",
+                    }}
+                  >
                     /monthly
                   </span>
                 </p>
@@ -79,9 +122,16 @@ const PlanDetailPackage = () => {
             }
             bill={
               <p
-                style={{ color: "grey", fontSize: "12px", textAlign: "center" }}
+                style={{
+                  color: "grey",
+                  fontSize: "12px",
+                  textAlign: "center",
+                  margin: "0px",
+                  padding: "0px",
+                  fontFamily: "AvenirText",
+                }}
               >
-                <strong>Billed Monthly</strong>
+                <>Billed Quartely</>
               </p>
             }
           />

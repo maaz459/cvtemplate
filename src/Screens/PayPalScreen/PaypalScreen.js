@@ -9,11 +9,17 @@ const PayPalScreen = () => {
   return (
     <>
       <Row justify="center">
-        <h1 className="pb-5 text-center">Review and Upgrade</h1>
+        <h1
+          className="pb-3 text-center"
+          style={{ fontFamily: "RobotoHeadingMedium" }}
+        >
+          Review and Upgrade
+        </h1>
       </Row>
       <Row justify="center">
         <Col sm={20} lg={12}>
           <PlanDetailPackage />
+          <br />
           <PlanDetailCard />
         </Col>
         <Col sm={20} lg={8}>

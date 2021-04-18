@@ -8,7 +8,7 @@ const { Option } = Select;
 const FormData = () => {
   return (
     <Row justify="center">
-      <Col span={24}>
+      <Col xs={18} sm={20} md={20} lg={21} xl={20}>
         <Form>
           <Form.Item>
             <Input placeholder="First Name" id="inp" />
@@ -37,21 +37,27 @@ const FormData = () => {
           <Form.Item>
             <Input.Group compact>
               <Form.Item noStyle>
-                <Select
+                <select
+                  id="inp"
                   placeholder="Country"
                   size="large"
                   style={{
-                    width: "60%",
+                    width: "65%",
                   }}
                 >
-                  <Option value="Zhejiang">Zhejiang</Option>
-                  <Option value="Jiangsu">Jiangsu</Option>
-                </Select>
+                  <option id="inp" value="Zhejiang">
+                    Zhejiang
+                  </option>
+                  <option id="inp" value="Jiangsu">
+                    Jiangsu
+                  </option>
+                </select>
               </Form.Item>
+
               <Form.Item noStyle>
                 <Input
                   id="inp"
-                  style={{ width: "25%", marginLeft: "15%" }}
+                  style={{ width: "30%", marginLeft: "5%" }}
                   placeholder="Zip Code"
                 />
               </Form.Item>

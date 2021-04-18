@@ -8,14 +8,14 @@ import american from "../../../../Assets/icons/Icon payment-american-express.png
 const PaymentForm = () => {
   return (
     <>
-      <Row justify="space-between" className="mt-3">
+      <Row justify="space-around" className="mt-3">
         <Col>
-          <h6 className="pb-5">
-            <strong>Your Plan details &nbsp;&nbsp;&nbsp;</strong>
+          <h6 className="pb-4" style={{ fontFamily: "AvenirText" }}>
+            <>Your Plan details &nbsp;&nbsp;&nbsp;</>
           </h6>
         </Col>
         <Col>
-          <Row justify="space-between">
+          <Row justify="space-between" style={{ fontFamily: "AvenirText" }}>
             <Col>
               <img src={visa} />
               &nbsp;&nbsp;
