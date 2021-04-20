@@ -8,9 +8,8 @@
 }
 .ant-modal-body {
   overflow-y: scroll;
-  /* max-height: 300px; */
 }
 
-/* .imageColumn {
-  background-color: red;
-} */
+.imageColumn {
+  margin-top: 1rem;
+}

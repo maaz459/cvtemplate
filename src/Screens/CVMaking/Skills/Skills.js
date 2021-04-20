@@ -320,10 +320,7 @@ const Education = () => {
             }}
           >
             <div>
-              <CVMakingButton name="Back" />
-            </div>
-            <div>
-              <CVMakingButton name="Next" />
+              <CVMakingButton to="education" name="Back" />
             </div>
           </div>
         </div>
