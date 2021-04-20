@@ -5,18 +5,24 @@ import "../ContactCard/ContactCard.css";
 
 const MessageCard = ({ title, extra, uppertext, lowertext, btnText }) => {
   return (
-    <div className="site-card-wrapper">
+    <div className="site-card-wrapper" style={{ marginLeft: "2%" }}>
       <Card
         hoverable
         title={title}
+        headStyle={{
+          backgroundColor: "#e8f1ff",
+          borderTopLeftRadius: "10px",
+          borderTopRightRadius: "10px",
+        }}
         extra={extra}
         bordered={true}
         style={{
-          borderRadius: "20px",
-          width: "350px",
-          height: "300px",
-          backgroundColor: "#d9f4eb",
+          borderRadius: "10px",
+          width: "100%",
+          // backgroundColor: "#d9f4eb",
+          backgroundColor: "#f7faff",
           margin: "20px",
+          fontFamily: "AvenirTextBlack",
         }}
       >
         <p className="text-center">{uppertext}</p>
@@ -27,8 +33,9 @@ const MessageCard = ({ title, extra, uppertext, lowertext, btnText }) => {
           style={{
             backgroundColor: "#6984ae",
             color: "white",
-            width: "250px",
-            marginLeft: "25px",
+            width: "200px",
+            marginLeft: "10%",
+            marginBottom: "9%",
           }}
         >
           {btnText}

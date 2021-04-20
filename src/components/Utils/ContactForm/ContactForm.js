@@ -1,7 +1,24 @@
-
-import "./ContactForm.css"
 import React from "react";
 import { Form, Input } from "antd";
+import Item from "antd/lib/list/Item";
+import "./ContactForm.css";
+
+const layout = {
+  labelCol: {
+    xs: { span: 20 },
+    sm: { span: 10 },
+    md: { span: 8 },
+    lg: { span: 8 },
+    xl: { span: 10 },
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 10 },
+    md: { span: 12 },
+    lg: { span: 12 },
+    xl: { span: 10 },
+  },
+};
 
 const ContactForm = () => {
   const [form] = Form.useForm();
@@ -14,36 +31,35 @@ const ContactForm = () => {
         backgroundColor: "#fafbfc",
       }}
     >
-      <h1 className="text-center pt-5">Contact Form</h1>
-      <Form
-        form={form}
-        name="horizontal_login"
-        layout="inline"
-        className="mt-5"
+      <h1
+        className="text-center pt-5 pb-3"
+        style={{ fontFamily: "RobotoHeading" }}
       >
-        <Form.Item name="email">
-          <Input placeholder="Email Address" size="large" className="px-5" />
-        </Form.Item>
-        <Form.Item name="name">
-          <Input className="px-5" placeholder="Name" size="large" />
-        </Form.Item>
-      </Form>
-      <Form form={form} className="mt-3">
-        <Form.Item name="subject">
+        Contact Form
+      </h1>
+      <Form {...layout} style={{ fontFamily: "AvenirTextBlack" }}>
+        <Item>
           <Input
+            type="text"
             className="px-5"
-            placeholder="Enter Subject Here"
+            placeholder="Email Address"
             size="large"
           />
-        </Form.Item>
-        <Form.Item name="help">
+          <div className="px-4 py-2" />
+          <Input type="text" className="px-5" placeholder="Name" size="large" />
+        </Item>
+        <Item>
+          <Input type="text" placeholder="Enter Subject Here" size="large" />
+        </Item>
+        <Item>
           <Input
-            className="px-5"
+            className="mb-2"
+            type="text"
             placeholder="Let us know how we can help you!"
             size="large"
-            style={{ height: "120px" }}
+            style={{ height: 120 }}
           />
-        </Form.Item>
+        </Item>
       </Form>
       <div className="text-center">
         <button
@@ -55,6 +71,7 @@ const ContactForm = () => {
             height: "35px",
             fontSize: "12px",
             borderRadius: "2px",
+            fontFamily: "AvenirTextBlack",
           }}
         >
           Send Message

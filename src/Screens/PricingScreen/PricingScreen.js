@@ -1,5 +1,5 @@
 import React from "react";
-import "./PricingScreen.css"
+import "./PricingScreen.css";
 import PricingBanner from "./../../components/Pricing/PricingBanner/PricingBanner";
 import PricingCard from "./../../components/Pricing/PricingCard/PricingCard";
 import Questions from "./../../components/Questions/Questions";
@@ -8,9 +8,10 @@ import MoneyBack from "./../../components/Pricing/MoneyBack/MoneyBack";
 import Carousel from "./../../components/Pricing/Carousel/Carousel";
 import PricingJoinNow from "./../../components/Pricing/PricingJoinNow/PricingJoinNow";
 import img from "./../../Assets/images/Path50309.png";
-import Navbar from './../../components/Navbar/Navbar';
-import Slider from './../../components/Slider/Slider';
-import Footer from './../../components/Footer/Footer';
+import Navbar from "./../../components/Navbar/Navbar";
+import Slider from "./../../components/Slider/Slider";
+import Footer from "./../../components/Footer/Footer";
+import MyButton from "../../components/Pricing/MyButton/MyButton";
 const PricingScreen = () => {
   return (
     <>
@@ -18,7 +19,6 @@ const PricingScreen = () => {
       {/* Pricing Banner */}
       <PricingBanner
         divClassName={true}
-
         paraStyle={{
           textAlign: "center",
           color: "white",
@@ -31,9 +31,7 @@ const PricingScreen = () => {
           color: "white",
           fontSize: "15px",
           fontStyle: "AvenirTextBlack",
-
         }}
-
         firstBtn="#ECECEC"
         secondBtn="#FFFFFF"
         fontColor="#333333"
@@ -68,16 +66,28 @@ const PricingScreen = () => {
       </div>
       <div className="mt-5">
         {/* <Carousel /> */}
-        <h1 style={{ textAlign: "center", fontFamily: "AvenirTextBlack" }}>Under Construction</h1>
+        <h1 style={{ textAlign: "center", fontFamily: "AvenirTextBlack" }}>
+          Under Construction
+        </h1>
       </div>
       <div style={{ marginTop: "10%" }} className="mt-5">
         <Questions />
       </div>
       <div className="mt-5">
-        <PricingJoinNow />
+        <PricingJoinNow
+          qoute={"Try Professional Resume Maker Now"}
+          button={
+            <MyButton
+              content="Join Now"
+              bgColor="#0a2c66"
+              color="white"
+              width="150px"
+              height="40px"
+            />
+          }
+        />
       </div>
       <Footer />
-
     </>
   );
 };

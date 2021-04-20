@@ -1,29 +1,51 @@
 import React from "react";
 import { Row, Col, InputNumber, Input, Button } from "antd";
 import "./JobSearchBanner.css";
-import man from './backMan.png'
-import { UnorderedListOutlined } from '@ant-design/icons';
-import heart from './heart.png'
-import front from './Path50326@2x.png'
-const JobSearchBanner = ({ isMobile, isTabletOrMobile, sidebarDisplay, setWidth }) => {
-  return (
+import man from "./backMan.png";
+import { UnorderedListOutlined } from "@ant-design/icons";
+import heart from "./heart.png";
+import front from "./Path50326@2x.png";
 
-    <div >
+const JobSearchBanner = ({
+  isMobile,
+  isTabletOrMobile,
+  sidebarDisplay,
+  setWidth,
+}) => {
+  return (
+    <div>
       <img className="manImage" src={man} alt="ManImage" />
       <img className="frontImage" src={front} alt="blackScreen" />
 
       <div className="jobSearchHeadings">
-
-        <h1 className={isMobile ? "text-center" : "py-5 text-center"} style={{ color: "#F9F9F9", fontFamily: "AvenirTextBlack", fontSize: isMobile ? "35px" : "" }}>
-
-          Find a J<span style={{ top: isTabletOrMobile ? isMobile ? "-50%" : "14%" : "10%" }} className="heart"><img src={heart} alt="Heart" /></span>ob You L<span style={{ color: "red" }}>o</span>ve
-
-      </h1>
-        {sidebarDisplay ? <></> :
-          <div className="jobSearchFields" style={{ display: "flex", justifyContent: "center" }}>
+        <h1
+          className={isMobile ? "text-center" : "py-5 text-center"}
+          style={{
+            color: "#F9F9F9",
+            fontFamily: "AvenirTextBlack",
+            fontSize: isMobile ? "35px" : "",
+          }}
+        >
+          Find a J
+          <span
+            style={{
+              top: isTabletOrMobile ? (isMobile ? "-50%" : "14%") : "10%",
+            }}
+            className="heart"
+          >
+            <img src={heart} alt="Heart" />
+          </span>
+          ob You L<span style={{ color: "red" }}>o</span>ve
+        </h1>
+        {sidebarDisplay ? (
+          <></>
+        ) : (
+          <div
+            className="jobSearchFields"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <div style={{ width: isMobile ? "70%" : "60%" }}>
               <Row justify="center">
-
                 <Col xl={9} lg={8} xs={24} sm={24} md={6}>
                   <Input
                     placeholder="Job Title, Skill OR Company"
@@ -32,60 +54,112 @@ const JobSearchBanner = ({ isMobile, isTabletOrMobile, sidebarDisplay, setWidth 
                   />
                 </Col>
 
-                <Col style={{ marginLeft: isTabletOrMobile ? "" : "10px", marginTop: isMobile ? "10px" : "" }} xs={12} sm={12} xl={5} md={4} lg={4}>
+                <Col
+                  style={{
+                    marginLeft: isTabletOrMobile ? "" : "10px",
+                    marginTop: isMobile ? "10px" : "",
+                  }}
+                  xs={12}
+                  sm={12}
+                  xl={5}
+                  md={4}
+                  lg={4}
+                >
                   <select id="arrows">
-                    <option value="Vancouver Island University">United States</option>
+                    <option value="Vancouver Island University">
+                      United States
+                    </option>
                     <option value="Western University">Pakistan</option>
-                    <option value="Wilfrid Laurier University">United Kingdom</option>
+                    <option value="Wilfrid Laurier University">
+                      United Kingdom
+                    </option>
                     <option value="York University">Lahore Lahore Aye</option>
                   </select>
                 </Col>
 
-                <Col style={{ marginLeft: isTabletOrMobile ? "" : "10px", marginTop: isMobile ? "10px" : "" }} xs={12} sm={12} xl={5} md={4} lg={4}>
+                <Col
+                  style={{
+                    marginLeft: isTabletOrMobile ? "" : "10px",
+                    marginTop: isMobile ? "10px" : "",
+                  }}
+                  xs={12}
+                  sm={12}
+                  xl={5}
+                  md={4}
+                  lg={4}
+                >
                   <select id="arrows">
-                    <option value="Vancouver Island University">Min.Salary</option>
+                    <option value="Vancouver Island University">
+                      Min.Salary
+                    </option>
                     <option value="Western University">1000</option>
                     <option value="Wilfrid Laurier University">500</option>
                     <option value="York University">Free</option>
                   </select>
-              &nbsp;&nbsp;
-            </Col>
+                  &nbsp;&nbsp;
+                </Col>
 
-                <Col style={isMobile ? {} : { marginLeft: "10px" }} xs={24} sm={24} xl={4} md={4} lg={4}>
+                <Col
+                  style={isMobile ? {} : { marginLeft: "10px" }}
+                  xs={24}
+                  sm={24}
+                  xl={4}
+                  md={4}
+                  lg={4}
+                >
                   <Button id="jobBtn">Search</Button>
                 </Col>
-              </Row></div>
+              </Row>
+            </div>
           </div>
-
-        }
-
+        )}
       </div>
-      {sidebarDisplay ?
+      {sidebarDisplay ? (
         <>
-          <Row justify="center" >
+          <Row justify="center">
             <Col span={isMobile ? 22 : 20}>
-              <Input.Search placeholder="Job Title, Skill or Company"
-                // onSearch={onSearch} 
+              <Input.Search
+                placeholder="Job Title, Skill or Company"
+                // onSearch={onSearch}
                 enterButton
                 id="searchBtn"
                 style={{ width: "100%" }}
               />
-            </Col >
+            </Col>
             <Col span={isMobile ? 2 : 4}>
-              {isMobile ?
-                <UnorderedListOutlined onClick={setWidth} style={{ cursor: "pointer", backgroundColor: "white", borderRadius: "50%", padding: "10px" }} />
-                :
-                <Button onClick={setWidth} style={{ borderRadius: "5px", width: "100%", color: "#0A2C66", fontFamily: "AvenirTextBlack", fontSize: "15px" }} icon={<UnorderedListOutlined />} size={5}>
+              {isMobile ? (
+                <UnorderedListOutlined
+                  onClick={setWidth}
+                  style={{
+                    cursor: "pointer",
+                    backgroundColor: "white",
+                    borderRadius: "50%",
+                    padding: "10px",
+                  }}
+                />
+              ) : (
+                <Button
+                  onClick={setWidth}
+                  style={{
+                    borderRadius: "5px",
+                    width: "100%",
+                    color: "#0A2C66",
+                    fontFamily: "AvenirTextBlack",
+                    fontSize: "15px",
+                  }}
+                  icon={<UnorderedListOutlined />}
+                  size={5}
+                >
                   Filters
-        </Button>}
+                </Button>
+              )}
             </Col>
           </Row>
-
-        </> : <></>}
+        </>
+      ) : (
+        <></>
+      )}
     </div>
-
-
-
   );
 };
 
