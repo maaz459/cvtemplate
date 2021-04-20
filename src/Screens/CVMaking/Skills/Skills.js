@@ -19,8 +19,14 @@ const Education = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const isMobile = useMediaQuery({ maxWidth: 600 });
   const [degreeProgram, setDegreeProgram] = useState([{ degreeProgram: "" }]);
-  const [softwareSkills, setSoftwareSkills] = useState([{ softwareSkills: "" }]);
-
+  const [softwareSkills, setSoftwareSkills] = useState([
+    { softwareSkills: "" },
+  ]);
+  const [professionalSkills, setProfessionalSkills] = useState([
+    { softwareSkills: "" },
+  ]);
+  const [language, setLanguage] = useState([{ language: "" }]);
+  const [interest, setInterest] = useState([{ interest: "" }]);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -41,7 +47,9 @@ const Education = () => {
       {isMobile ? (
         <></>
       ) : (
-        <div style={{ margin: "7% 0%", display: "flex", justifyContent: "center" }}>
+        <div
+          style={{ margin: "7% 0%", display: "flex", justifyContent: "center" }}
+        >
           <Tab current={3}></Tab>
         </div>
       )}
@@ -51,9 +59,12 @@ const Education = () => {
         <div className="basicInfoDislay">
           <Row>
             <Col lg={18} md={18} sm={24} xs={24}>
-              <h1 className="basicInfoPageHeading">Tell us about your Skills</h1>
+              <h1 className="basicInfoPageHeading">
+                Tell us about your Skills
+              </h1>
               <h6 className="fieldsMessage">
-                Fields with <span style={{ color: "red" }}>*</span> are mandatory
+                Fields with <span style={{ color: "red" }}>*</span> are
+                mandatory
               </h6>
             </Col>
             <Col className="uploadPhoto" lg={6} md={6} sm={24} xs={24}>
@@ -74,19 +85,23 @@ const Education = () => {
               <Row style={{ marginTop: "7%" }}>
                 <Col span={isMobile ? 22 : 11}>
                   <NameBadge name="Add Professional Skills"></NameBadge>
-                  <Row style={{ marginBottom: "10%" }}>
-                    {degreeProgram.map((d, i) => {
+                  <Row>
+                    {professionalSkills.map((d, i) => {
                       return (
                         <>
                           <Col style={{ marginTop: "5%" }} span={22}>
-                            <InputField placeholder="Degree Program" suffix={true} type="text" />
+                            <InputField
+                              placeholder="Degree Program"
+                              suffix={true}
+                              type="text"
+                            />
                           </Col>
                           <Col offset={1} style={{ marginTop: "7%" }} span={1}>
                             <span
                               onClick={() => {
-                                const list = [...degreeProgram];
+                                const list = [...professionalSkills];
                                 list.splice(i, 1);
-                                setDegreeProgram(list);
+                                setProfessionalSkills(list);
                               }}
                               span={1}
                               style={{ cursor: "pointer" }}
@@ -98,14 +113,23 @@ const Education = () => {
                       );
                     })}
 
-                    <AddMore onClick={() => setDegreeProgram([...degreeProgram, { name: "hello" }])} />
+                    <AddMore
+                      onClick={() =>
+                        setProfessionalSkills([
+                          ...professionalSkills,
+                          { name: "hello" },
+                        ])
+                      }
+                    />
                   </Row>
                   <Row>
                     <Col span={11}>
                       <NameBadge name="Interest"></NameBadge>
                     </Col>
                     <Col span={11}>
-                      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                      <div
+                        style={{ display: "flex", justifyContent: "flex-end" }}
+                      >
                         <Button
                           style={{
                             backgroundColor: "#F4F4F4",
@@ -116,7 +140,11 @@ const Education = () => {
                           }}
                           shape="round"
                           onClick={showModal}
-                          icon={<EyeOutlined style={{ all: "unset", color: "#FF4309" }} />}
+                          icon={
+                            <EyeOutlined
+                              style={{ all: "unset", color: "#FF4309" }}
+                            />
+                          }
                           size={1}
                         >
                           View
@@ -144,7 +172,11 @@ const Education = () => {
                       return (
                         <>
                           <Col style={{ marginTop: "5%" }} span={22}>
-                            <InputField placeholder="Degree Program" suffix={true} type="text" />
+                            <InputField
+                              placeholder="Degree Program"
+                              suffix={true}
+                              type="text"
+                            />
                           </Col>
                           <Col offset={1} style={{ marginTop: "7%" }} span={1}>
                             <span
@@ -163,22 +195,30 @@ const Education = () => {
                       );
                     })}
 
-                    <AddMore onClick={() => setDegreeProgram([...degreeProgram, { name: "hello" }])} />
+                    <AddMore
+                      onClick={() =>
+                        setDegreeProgram([...degreeProgram, { name: "hello" }])
+                      }
+                    />
                   </Row>
                   <NameBadge name="Language"></NameBadge>
                   <Row>
-                    {degreeProgram.map((d, i) => {
+                    {language.map((d, i) => {
                       return (
                         <>
                           <Col style={{ marginTop: "5%" }} span={22}>
-                            <InputField placeholder="Degree Program" suffix={true} type="text" />
+                            <InputField
+                              placeholder="Degree Program"
+                              suffix={true}
+                              type="text"
+                            />
                           </Col>
                           <Col offset={1} style={{ marginTop: "7%" }} span={1}>
                             <span
                               onClick={() => {
-                                const list = [...degreeProgram];
+                                const list = [...language];
                                 list.splice(i, 1);
-                                setDegreeProgram(list);
+                                setLanguage(list);
                               }}
                               span={1}
                               style={{ cursor: "pointer" }}
@@ -190,7 +230,11 @@ const Education = () => {
                       );
                     })}
 
-                    <AddMore onClick={() => setDegreeProgram([...degreeProgram, { name: "hello" }])} />
+                    <AddMore
+                      onClick={() =>
+                        setLanguage([...language, { name: "hello" }])
+                      }
+                    />
                   </Row>
                 </Col>
                 <Col span={2}></Col>
@@ -201,7 +245,11 @@ const Education = () => {
                       return (
                         <>
                           <Col style={{ marginTop: "5%" }} span={22}>
-                            <InputField placeholder="Degree Program" suffix={true} type="text" />
+                            <InputField
+                              placeholder="Degree Program"
+                              suffix={true}
+                              type="text"
+                            />
                           </Col>
                           <Col offset={1} style={{ marginTop: "7%" }} span={1}>
                             <span
@@ -220,7 +268,14 @@ const Education = () => {
                       );
                     })}
 
-                    <AddMore onClick={() => setSoftwareSkills([...softwareSkills, { name: "hello" }])} />
+                    <AddMore
+                      onClick={() =>
+                        setSoftwareSkills([
+                          ...softwareSkills,
+                          { name: "hello" },
+                        ])
+                      }
+                    />
                   </Row>
                 </Col>
               </Row>
@@ -228,7 +283,12 @@ const Education = () => {
 
             <Col span={2} />
             <Col style={{ textAlign: "center" }} lg={6} md={6} sm={14} xs={14}>
-              <img className="basicInfoCVImage" style={{ maxWidth: "70%" }} src={seven} alt="CV is Loading"></img>
+              <img
+                className="basicInfoCVImage"
+                style={{ maxWidth: "70%" }}
+                src={seven}
+                alt="CV is Loading"
+              ></img>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <Button
                   style={{
@@ -239,7 +299,9 @@ const Education = () => {
                     border: "none",
                   }}
                   shape="round"
-                  icon={<EyeOutlined style={{ all: "unset", color: "#FF4309" }} />}
+                  icon={
+                    <EyeOutlined style={{ all: "unset", color: "#FF4309" }} />
+                  }
                   size={5}
                 >
                   Preview
@@ -249,7 +311,14 @@ const Education = () => {
           </Row>
 
           {/* Back and Next Buttons */}
-          <div style={{ display: "flex", justifyContent: "space-between", marginTop: "7%", marginBottom: "125px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: "7%",
+              marginBottom: "125px",
+            }}
+          >
             <div>
               <CVMakingButton name="Back" />
             </div>
