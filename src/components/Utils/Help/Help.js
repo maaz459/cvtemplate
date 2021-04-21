@@ -9,17 +9,22 @@ import img2 from "./../../../Assets/icons/Icon feather-message-square.png";
 const Help = () => {
   return (
     <>
-      <p style={{
-        fontFamily: "AvenirTextBlack",
-        fontWeight: "bolder"
-      }} id="help-head">We're here to help</p>
+      <p
+        style={{
+          fontFamily: "AvenirTextBlack",
+          fontWeight: "bolder",
+        }}
+        id="help-head"
+      >
+        We're here to help
+      </p>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
         }}
       >
-        <Row justify="center">
+        <Row justify="center" gutter={40}>
           <Col xs={20} sm={20} md={12} lg={12} xl={12}>
             <ContactCard
               title="Call Now"

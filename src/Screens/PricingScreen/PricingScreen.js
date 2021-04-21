@@ -5,13 +5,13 @@ import PricingCard from "./../../components/Pricing/PricingCard/PricingCard";
 import Questions from "./../../components/Questions/Questions";
 import downwardIcon from "./../../Assets/icons/Icon material-keyboard-arrow-down.png";
 import MoneyBack from "./../../components/Pricing/MoneyBack/MoneyBack";
-import Carousel from "./../../components/Pricing/Carousel/Carousel";
 import PricingJoinNow from "./../../components/Pricing/PricingJoinNow/PricingJoinNow";
 import img from "./../../Assets/images/Path50309.png";
 import Navbar from "./../../components/Navbar/Navbar";
-import Slider from "./../../components/Slider/Slider";
 import Footer from "./../../components/Footer/Footer";
 import MyButton from "../../components/Pricing/MyButton/MyButton";
+import Slider from "../../components/Pricing/Slider/Slider";
+
 const PricingScreen = () => {
   return (
     <>
@@ -66,9 +66,10 @@ const PricingScreen = () => {
       </div>
       <div className="mt-5">
         {/* <Carousel /> */}
-        <h1 style={{ textAlign: "center", fontFamily: "AvenirTextBlack" }}>
+        {/* <h1 style={{ textAlign: "center", fontFamily: "AvenirTextBlack" }}>
           Under Construction
-        </h1>
+        </h1> */}
+        <Slider />
       </div>
       <div style={{ marginTop: "10%" }} className="mt-5">
         <Questions />
