@@ -76,3 +76,37 @@ q {
 .author {
   color: cornflowerblue;
 }
+
+@media only screen and (max-width: 1050px) {
+  .head {
+    font-size: 18px;
+  }
+  .pic {
+    height: 200px;
+    width: 120px;
+  }
+  .cmnt {
+    font-size: 10px;
+    padding-left: 5%;
+  }
+  .name {
+    padding-left: 5%;
+  }
+}
+/* Max Screen Size = 850px */
+@media only screen and (max-width: 850px) {
+  .head {
+    font-size: 18px;
+  }
+  .pic {
+    height: 200px;
+    width: 120px;
+  }
+  .cmnt {
+    font-size: 10px;
+    padding-left: 5%;
+  }
+  .name {
+    padding-left: 5%;
+  }
+}

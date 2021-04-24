@@ -11,7 +11,7 @@ const Slider = () => {
       }}
     >
       <h2
-        className="text-center mb-5"
+        className="text-center mb-5 head"
         style={{ fontFamily: "RobotoHeadingMedium" }}
       >
         What Members Love About Carrer CV Pro
@@ -28,6 +28,7 @@ const Slider = () => {
       >
         <Carousel.Item>
           <p
+            className="cmnt"
             style={{
               maxWidth: "600px",
               fontFamily: "AvenirText",
@@ -40,6 +41,7 @@ const Slider = () => {
             want "
           </p>
           <strong
+            className="name"
             style={{
               color: "#0a2c66",
               fontFamily: "AvenirText",
@@ -51,6 +53,7 @@ const Slider = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
+            className="mb-5 pb-5 pic"
             width="90%"
             height="300px"
             src="https://picsum.photos/800/600?random=1"
@@ -58,6 +61,7 @@ const Slider = () => {
         </Carousel.Item>
         <Carousel.Item>
           <p
+            className="cmnt"
             style={{
               maxWidth: "600px",
               fontFamily: "AvenirText",
@@ -70,6 +74,7 @@ const Slider = () => {
             want "
           </p>
           <strong
+            className="name"
             style={{
               color: "#0a2c66",
               fontFamily: "AvenirText",
@@ -81,6 +86,7 @@ const Slider = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
+            className="mb-5 pb-5 pic"
             width="90%"
             height="300px"
             src="https://picsum.photos/800/600?random=1"
@@ -88,6 +94,7 @@ const Slider = () => {
         </Carousel.Item>
         <Carousel.Item>
           <p
+            className="cmnt"
             style={{
               maxWidth: "600px",
               fontFamily: "AvenirText",
@@ -100,6 +107,7 @@ const Slider = () => {
             want"
           </p>
           <strong
+            className="name"
             style={{
               color: "#0a2c66",
               fontFamily: "AvenirText",
@@ -111,6 +119,7 @@ const Slider = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
+            className="mb-5 pb-5 pic"
             width="90%"
             height="300px"
             src="https://picsum.photos/800/600?random=1"
