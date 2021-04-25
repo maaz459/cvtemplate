@@ -2,7 +2,7 @@ import React from "react";
 import Cards from "./Card";
 import { Row, Col } from "antd";
 import "antd/dist/antd.css";
-import './Card.css'
+import "./Card.css";
 const PricingCard = () => {
   return (
     <>
@@ -10,24 +10,24 @@ const PricingCard = () => {
         style={{
           textAlign: "center",
           fontSize: "30px",
-          fontFamily: "RobotoBold"
+          fontFamily: "RobotoBold",
         }}
       >
         What You Get With Career CV
       </p>
       <div>
         <Row justify="space-around">
-          <Col className="my-4" xs={20} sm={20} md={9} lg={9} xl={9}>
+          <Col className="my-4" xs={22} sm={22} md={9} lg={9} xl={9}>
             <Cards
               title="Free"
               extra="$0"
               style={{
                 borderRadius: "20px",
-                boxShadow: "0px 0px 8px 0px rgba(171,171,171,0.5)"
+                boxShadow: "0px 0px 8px 0px rgba(171,171,171,0.5)",
+                lineHeight: "20px",
               }}
               one={
                 <p>
-
                   <b>3 professionally Designed Templates</b>
                   <br />
                   Basic options to get you started
@@ -72,15 +72,15 @@ const PricingCard = () => {
               btnFontColor="#0A2C66"
             />
           </Col>
-          <Col className="my-4" xs={20} sm={20} md={9} lg={9} xl={9}>
+          <Col className="my-4" xs={22} sm={22} md={9} lg={9} xl={9}>
             <Cards
               title="Pro"
               extra="$12/m"
               style={{
                 borderRadius: "20px",
                 boxShadow: "0px 0px 8px 0px rgba(171,171,171,0.5)",
-                background: "rgba(196,221,255,.2)"
-
+                background: "rgba(196,221,255,.2)",
+                lineHeight: "20px",
               }}
               one={
                 <p>
@@ -130,7 +130,6 @@ const PricingCard = () => {
           </Col>
         </Row>
       </div>
-
     </>
   );
 };

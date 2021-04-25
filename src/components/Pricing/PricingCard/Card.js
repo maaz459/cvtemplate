@@ -18,35 +18,32 @@ const Cards = ({
   style,
 }) => {
   return (
-    <div >
-      <Card
-        hoverable
-        title={title}
-        extra={extra}
-        bordered={true}
-        style={style}
-      >
+    <div>
+      <Card hoverable title={title} extra={extra} bordered={true} style={style}>
         <p>{one}</p>
-        <Divider style={{ border: "1px solid grey" }} />
+        <hr style={{ border: "1px solid grey" }} />
         <p>{two}</p>
-        <Divider style={{ border: "1px solid grey" }} />
+        <hr style={{ border: "1px solid grey" }} />
         <p>{three}</p>
-        <Divider style={{ border: "1px solid grey" }} />
+        <hr style={{ border: "1px solid grey" }} />
         <p>{four}</p>
-        <Divider style={{ border: "1px solid grey" }} />
+        <hr style={{ border: "1px solid grey" }} />
         <p>{five}</p>
-        <Divider style={{ border: "1px solid grey" }} />
+        <hr style={{ border: "1px solid grey" }} />
         <p>{six}</p>
-        <br />
 
-        <div >
+        <div>
           <Button
-            style={{ width: "100%", backgroundColor: btnColor, color: btnFontColor, fontFamily: "AvenirTextBlack" }}
+            style={{
+              width: "100%",
+              backgroundColor: btnColor,
+              color: btnFontColor,
+              fontFamily: "AvenirTextBlack",
+            }}
           >
             {btnText}
           </Button>
         </div>
-
       </Card>
     </div>
   );
