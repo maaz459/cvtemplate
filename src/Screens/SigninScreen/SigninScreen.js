@@ -34,7 +34,9 @@ function SigninScreen(props) {
         <div className="content">
           <form className="form" onSubmit={submitHandler}>
             <div>
-              <h2 style={{ fontFamily: "Roboto" }}>Sign In</h2>
+              <h4 style={{ fontFamily: "AvenirText", color: "#0a2c66" }}>
+                Sign In
+              </h4>
             </div>
             <LoginWithGoogle
               name="Login with Google"
@@ -56,7 +58,9 @@ function SigninScreen(props) {
                 marginBottom: "10px",
               }}
             />
-            <div className="text-center">OR</div>
+            <div className="text-center" style={{ fontFamily: "AvenirText" }}>
+              <small>OR</small>
+            </div>
             {loading && <Loadingbox />}
             {error && <MessageBox variant="danger">{error}</MessageBox>}
 
@@ -67,7 +71,7 @@ function SigninScreen(props) {
 
               <InputField
                 placeholder="Your Email"
-                suffix={true}
+                suffix={false}
                 type="text"
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -79,7 +83,7 @@ function SigninScreen(props) {
 
               <InputField
                 placeholder="Enter Password"
-                suffix={true}
+                suffix={false}
                 type="password"
                 id="password"
                 onChange={(e) => setPassword(e.target.value)}
@@ -92,10 +96,10 @@ function SigninScreen(props) {
             </div>
             <div className="form-button">
               <button className="primary" type="submit">
-                LOGIN
+                Sign in
               </button>
             </div>
-            <div className="confirm mb-3">
+            <div className="confirm mb-3" style={{ fontFamily: "AvenirText" }}>
               <small>
                 Don't have an account ? <Link to="/register">Sign Up</Link>
               </small>

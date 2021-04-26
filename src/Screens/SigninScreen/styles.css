@@ -6,7 +6,7 @@
   width: 100vw;
 }
 .login .image-background {
-  min-height: 70%;
+  min-height: 95%;
   min-width: 70%;
   background-image: url("../../images/CardBase.png");
   background-size: cover;
@@ -17,7 +17,7 @@
   justify-content: flex-end;
 }
 .login .content {
-  margin: 0 100px;
+  margin: 0 40px;
 }
 .login .form {
   max-width: 60rem;
@@ -38,6 +38,7 @@
   margin: 8px 0;
   display: block;
   color: #0a2c66;
+  font-family: "AvenirText";
 }
 .login .form input {
   padding: 5px 10px;
@@ -55,10 +56,12 @@
 .login .form .forgot-pass {
   color: #0a2c66;
   font-size: 15px;
+  font-family: "AvenirText";
 }
 .login .form-button {
   display: flex;
   flex-direction: column;
+  font-family: "AvenirText";
 }
 .login .form-button > button {
   padding: 8px 10px;
@@ -78,6 +81,7 @@
 .login .form p {
   color: #0a2c66;
   font-size: 15px;
+  font-family: "AvenirText";
 }
 .login .form a {
   color: #000000;
