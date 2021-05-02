@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import BannerCard from "../BannerCard/BannerCard";
 import { Row, Col } from "antd";
 import "antd/dist/antd.css";
-import CardTabs from './../PricingCardTabs/CardTabs';
+import CardTabs from "./../PricingCardTabs/CardTabs";
 
 const PricingBannerCard = (props) => {
+  const [cardVal, setCardVal] = useState(false);
   return (
     <>
-
       <Row justify="center">
         <Col className="mx-4 my-2" xs={18} sm={18} md={12} lg={7} xl={7}>
           <BannerCard
@@ -17,11 +17,11 @@ const PricingBannerCard = (props) => {
                   fontSize: "20px",
                   fontWeight: "bold",
                   textAlign: "center",
-                  fontFamily: "AvenirTextBlack"
+                  fontFamily: "AvenirTextBlack",
                 }}
               >
                 Free Account
-                </p>
+              </p>
             }
             two={
               <p
@@ -33,10 +33,16 @@ const PricingBannerCard = (props) => {
                 }}
               >
                 $0
-                </p>
+              </p>
             }
             three={
-              <p style={{ textAlign: "center", color: "grey", fontFamily: "AvenirTextBlack" }}>
+              <p
+                style={{
+                  textAlign: "center",
+                  color: "grey",
+                  fontFamily: "AvenirTextBlack",
+                }}
+              >
                 Always free, no hidden fees{" "}
               </p>
             }
@@ -46,9 +52,12 @@ const PricingBannerCard = (props) => {
                 aria-hidden="true"
                 style={{ color: "#229954", marginLeft: "10%" }}
               >
-                <span className="mx-2" style={{ color: "black", fontFamily: "AvenirTextBlack" }}>
+                <span
+                  className="mx-2"
+                  style={{ color: "black", fontFamily: "AvenirTextBlack" }}
+                >
                   3 Professionally Designed Templates
-                  </span>
+                </span>
               </i>
             }
             five={
@@ -57,9 +66,12 @@ const PricingBannerCard = (props) => {
                 aria-hidden="true"
                 style={{ color: "#229954", marginLeft: "10%" }}
               >
-                <span className="mx-2" style={{ color: "black", fontFamily: "AvenirTextBlack" }}>
+                <span
+                  className="mx-2"
+                  style={{ color: "black", fontFamily: "AvenirTextBlack" }}
+                >
                   Create 1 Resume
-                  </span>
+                </span>
               </i>
             }
             six={
@@ -68,9 +80,12 @@ const PricingBannerCard = (props) => {
                 aria-hidden="true"
                 style={{ color: "#229954", marginLeft: "10%" }}
               >
-                <span className="mx-2" style={{ color: "black", fontFamily: "AvenirTextBlack" }}>
+                <span
+                  className="mx-2"
+                  style={{ color: "black", fontFamily: "AvenirTextBlack" }}
+                >
                   Download to PDF
-                  </span>
+                </span>
               </i>
             }
             seven={
@@ -79,24 +94,30 @@ const PricingBannerCard = (props) => {
                 aria-hidden="true"
                 style={{ color: "#229954", marginLeft: "10%" }}
               >
-                <span className="mx-2" style={{ color: "black", fontFamily: "AvenirTextBlack" }}>
+                <span
+                  className="mx-2"
+                  style={{ color: "black", fontFamily: "AvenirTextBlack" }}
+                >
                   Career CV Branding
-                  </span>
+                </span>
               </i>
             }
             btnText="Sign up Free"
             firstBtn={props.firstBtn}
             checkPage={props.checkPage}
-
           />
         </Col>
 
         <Col className="mx-4 my-2" xs={18} sm={18} md={12} lg={7} xl={7}>
           <BannerCard
             start={
-              <CardTabs checkPage={props.checkPage}></CardTabs>
+              <CardTabs
+                onClick={() => setCardVal(!cardVal)}
+                cardVal={cardVal}
+                checkPage={props.checkPage}
+              ></CardTabs>
             }
-            cardColor={props.cardColor}
+            cardColor={cardVal ? "#0a2c66" : props.cardColor}
             one={
               <p
                 style={{
@@ -104,12 +125,11 @@ const PricingBannerCard = (props) => {
                   fontWeight: "bold",
                   textAlign: "center",
                   fontFamily: "AvenirTextBlack",
-                  color: props.fontColor
-
+                  color: cardVal ? "white" : props.fontColor,
                 }}
               >
                 Pro Quartely
-                </p>
+              </p>
             }
             two={
               <p
@@ -118,65 +138,110 @@ const PricingBannerCard = (props) => {
                   fontWeight: "bold",
                   textAlign: "center",
                   fontFamily: "AvenirTextBlack",
-                  color: props.fontColor
-
+                  color: cardVal ? "white" : props.fontColor,
                 }}
               >
-                $12
-                  <span style={{
-                  color: "grey", fontSize: "12px", fontFamily: "AvenirTextBlack"
-                }}>USD</span>
+                {cardVal ? "$26" : "$12"}
+                <span
+                  style={{
+                    color: "grey",
+                    fontSize: "12px",
+                    fontFamily: "AvenirTextBlack",
+                  }}
+                >
+                  USD
+                </span>
               </p>
             }
             three={
-              <p style={{
-                textAlign: "center", color: "grey", fontFamily: "AvenirTextBlack"
-              }}>
+              <p
+                style={{
+                  textAlign: "center",
+                  color: "grey",
+                  fontFamily: "AvenirTextBlack",
+                }}
+              >
                 Per Month (Billed quartely)
-                </p>
+              </p>
             }
             four={
               <i
                 class="fa fa-check"
                 aria-hidden="true"
-                style={{ color: props.fontColor, marginLeft: "10%" }}
+                style={{
+                  color: cardVal ? "white" : props.fontColor,
+                  marginLeft: "10%",
+                }}
               >
-                <span className="mx-2" style={{ color: props.fontColor, fontFamily: "AvenirTextBlack" }}>
+                <span
+                  className="mx-2"
+                  style={{
+                    color: cardVal ? "white" : props.fontColor,
+                    fontFamily: "AvenirTextBlack",
+                  }}
+                >
                   20+ Professionally Designed Templates
-                  </span>
+                </span>
               </i>
             }
             five={
               <i
                 class="fa fa-check"
                 aria-hidden="true"
-                style={{ color: props.fontColor, marginLeft: "10%" }}
+                style={{
+                  color: cardVal ? "white" : props.fontColor,
+                  marginLeft: "10%",
+                }}
               >
-                <span className="mx-2" style={{ color: props.fontColor, fontFamily: "AvenirTextBlack" }}>
+                <span
+                  className="mx-2"
+                  style={{
+                    color: cardVal ? "white" : props.fontColor,
+                    fontFamily: "AvenirTextBlack",
+                  }}
+                >
                   Create Unlimited Resumes
-                  </span>
+                </span>
               </i>
             }
             six={
               <i
                 class="fa fa-check"
                 aria-hidden="true"
-                style={{ color: props.fontColor, marginLeft: "10%" }}
+                style={{
+                  color: cardVal ? "white" : props.fontColor,
+                  marginLeft: "10%",
+                }}
               >
-                <span className="mx-2" style={{ color: props.fontColor, fontFamily: "AvenirTextBlack" }}>
+                <span
+                  className="mx-2"
+                  style={{
+                    color: cardVal ? "white" : props.fontColor,
+                    fontFamily: "AvenirTextBlack",
+                  }}
+                >
                   Unlimited PDF Download
-                  </span>
+                </span>
               </i>
             }
             seven={
               <i
                 class="fa fa-check"
                 aria-hidden="true"
-                style={{ color: props.fontColor, marginLeft: "10%" }}
+                style={{
+                  color: cardVal ? "white" : props.fontColor,
+                  marginLeft: "10%",
+                }}
               >
-                <span className="mx-2" style={{ color: props.fontColor, fontFamily: "AvenirTextBlack" }}>
+                <span
+                  className="mx-2"
+                  style={{
+                    color: cardVal ? "white" : props.fontColor,
+                    fontFamily: "AvenirTextBlack",
+                  }}
+                >
                   Personal Professional Website
-                  </span>
+                </span>
               </i>
             }
             btnText="Get Started With Pro"
@@ -184,7 +249,6 @@ const PricingBannerCard = (props) => {
           />
         </Col>
       </Row>
-
     </>
   );
 };
